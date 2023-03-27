@@ -1,0 +1,627 @@
+<%- include('../layouts/user/header.ejs')%>
+    <!--================Header Area =================-->
+    <header class="header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="/Home"><img src="/royal-master/imageFront/Logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/whisList">❤️ WISHLIST</a></li>
+                        <li class="nav-item submenu dropdown">
+
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">Account</a>
+
+
+                            <ul class="dropdown-menu">
+                                <% if( typeof PassUserName !=='undefined' ) {%>
+
+                                    <li class="nav-item"><a class="nav-link" href="/Userpage">
+                                            <%=PassUserName.userName%>
+                                        </a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/UserLogout">LOGOUT </a></li>
+
+                                    <%}else{ %>
+
+                                        <li class="nav-item"><a class="nav-link" href="/UserSignUp">SIGNUP </a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/UserLogin">LOGIN</a></li>
+                                        <% } %>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="elements.html">About us </a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Area =================-->
+
+
+
+
+    <!--================Banner Area =================-->
+    <section class="banner_area" style="max-height: 150px;">
+        <div class="booking_table d_flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0"
+                data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h3 class="">
+
+                    </h3>
+                    <p>
+
+                    </p>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--================Banner Area =================-->
+
+
+    <!--================ Facilities Area  =================-->
+
+    <!--================ Facilities Area  =================-->
+
+    <!--================ About History Area  =================-->
+    <section class="about_history_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-7 col-xl-4 col-7 col-sm-8  align-items-center">
+
+                    <div class="card-header " style="border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px;">
+                        <label for="check-in-date" style="color: rgb(0, 0, 0);">Check-in Date:</label>
+                        <table>
+                            <tr>
+                                <th class="h5" style="color: rgb(0, 0, 0);">Check-In-Date</th>
+                                <th class="h5 pl-3" style="color: rgb(0, 0, 0);">Check-out-Date</th>
+                            </tr>
+                            <tr>
+                                <td class="h6  p-3"><%=date%></td>
+                                <td class="h6  pl-5"><%=resortData.resortAvailabilityData.toLocaleDateString() %></td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+
+                    <article class="card-group-item mt-3">
+
+
+
+                        <div class="filter-content" style="background-color: #ffffff;">
+
+                            <header class="card-header d-flex "
+                                style="background-color: rgb(236, 233, 233); border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px ;">
+                                <h4 class="" style="color: rgb(15, 27, 43);">Price </h4>
+                                <h4 class="ml-auto" style="color: rgb(0, 17, 255);" id="total">
+                                    ₹ <%=resortData.resortPrice %>
+                                </h4>
+
+                            </header>
+                            <div class="card-header "
+                                style=" border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px;">
+                                <h5 style="color: black;">Excluded charges</h5>
+                                <div class="d-flex">
+                                    <p class=" "> Goods & services tax </p>
+
+                                    <p class="ml-auto">
+                                        ₹ <%=gstRate%>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="card-header mt-3"
+                                style="border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px;">
+                                <h5 style="color: black;">Your payment schedule
+                                </h5>
+                                <div class="d-flex">
+                                    <p class=" "> Before you stay you'll pay </p>
+
+                                    <p class="ml-auto">
+                                        ₹ <%=resortData.resortPrice %>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="card-header mt-3"
+                                style="border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px;">
+                                <h5 style="color: black;">How much will it cost to cancel?</h5>
+                                <div class="d-flex">
+                                    <p class=" "> If you cancel, you'll pay
+                                    </p>
+
+                                    <p class="ml-auto">
+                                        ₹ <%=resortData.resortPrice %>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="card-header mt-3"
+                                style="border:solid rgb(230, 227, 227) 0.1px; border-radius: 10px;">
+                                <h4 style="color: black;">Use Your Coupon</h4>
+                                <form action="" id="couponId">
+                                    <label for="">Apply Coupon</label>
+                                    <input type="text" form="couponId" name="CouponCode" id="NAMEcode">
+                                    <a class="btn btn-outline-warning ml-auto" style="text-decoration: none;"
+                                        form="couponId"
+                                        onclick="applyCoupon('<%=resortData.resortPrice%>',$('#NAMEcode').val())">
+                                        Redeem
+                                        Now</a>
+                                    <input type="hidden" id="discount1" value='' name="discount1">
+                                </form>
+                                <div>
+                                    <p>Discount</p>
+                                </div>
+                                <div>
+                                    <p id="discount">0</p>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="col-md-12 ">
+
+                                </form>
+                            </div>
+
+
+
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <div class="col-md-7 col-lg-7 col-6 col-xl-8 col-sm-5">
+
+
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-12 col-xl-12 ">
+                            <div class="card" style="border-radius:7px;">
+                                <div class="card-body ">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                <img src="/resortImages/<%=resortData.resortsOtherImages[0]%>"
+                                                    class="w-100" style="height: 10rem; width: 12rem;" />
+                                                <a href="#!">
+                                                    <div class="hover-overlay">
+                                                        <div class="mask" style="background-color: rgb(255, 255, 255);">
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                            <h4 class=""
+                                                style="color: #04091e; font-family: Arial, Helvetica, sans-serif; font-weight: 600;">
+                                                <%=resortData.resortName %>
+                                            </h4>
+                                            <div class="d-flex flex-row">
+                                                <div class="text-danger mb-1 me-2">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <span>310</span>
+                                            </div>
+                                            <div class="mt-1 mb-0 text-muted small">
+                                                <span>100% cotton</span>
+                                                <span class="text-primary"> • </span>
+                                                <span>Light weight</span>
+                                                <span class="text-primary"> • </span>
+                                                <span>Best finish<br /></span>
+                                            </div>
+                                            <div class="mb-2 text-muted small">
+                                                <span>Unique design</span>
+                                                <span class="text-primary"> • </span>
+                                                <span>For men</span>
+                                                <span class="text-primary"> • </span>
+                                                <span>Casual<br /></span>
+                                            </div>
+                                            <p class="text-truncate mb-4 mb-md-0">
+                                                <%=resortData.resortDiscription%>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                                <h4 class="mb-1 me-1">
+                                                </h4>
+                                                <!-- <span class="text-danger"><s>$20.99</s></span> -->
+                                            </div>
+                                            <!-- <h6 class="text-success">Free shipping</h6> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <h4 style="font-weight: 600; color: black;">Enter your details</h4>
+                    <p style="font-weight: 600;">Are you travelling for work?</p>
+                    <div class="row">
+                        <div class="col-75">
+                            <div class="container">
+                                <form action="" id="cheakoutBooking">
+                                    <div class="row">
+                                        <div class="col-50">
+                                            <label for="fname"><i class="fa fa-user text-primary"></i> Full Name</label>
+                                            <input type="text" id="fname" name="bookername" placeholder="John M. Doe"
+                                                value="adilsha">
+                                            <label for="email"><i class="fa fa-envelope text-primary"></i> Email</label>
+                                            <input type="text" id="email" name="bookereamil" value="adilsha@gamil.com"
+                                                placeholder="john@example.com">
+
+                                            <label for="adr"><i class="fa fa-address text-primary"></i> Mobile
+                                                No</label>
+                                            <input class="w-50" type="text" id="adr" name="bookerphonenumber"
+                                                placeholder="Mobile No:" value="8086814964">
+
+                                            <h4>Enter yourAddress details</h4>
+                                            <input class="w-50" type="text" id="adr" name="street"
+                                                placeholder="street/Village" value="elamaram">
+                                            <input class="w-50" type="text" id="adr" name="city" placeholder="city"
+                                                value="Malappuram">
+
+                                            <input class="w-50" type="text" id="adr" name="state" placeholder="state"
+                                                value="kerala">
+
+                                            <input class="w-50" type="text" id="adr" name="pinCode" value="673645"
+                                                placeholder="pinCode">
+                                            <input type="text" name="userId" id="" value="<%=userid._id  %>" hidden>
+                                            <input type="text" name="bookingAmount" id=""
+                                                value="<%=resortData.resortPrice%>" hidden>
+
+
+                                            <input type="text" name="resortId" id="" value="<%=resortData._id%>" hidden>
+                                            <input type="text" name="CheakoutDate" id="" value="<%= resortData.resortAvailabilityData%>" hidden>
+
+                                           
+
+
+
+                                            <% if(typeof message !=="undefined" ) { %>
+                                                <h5 style="font-size: 14px;color: brown;">
+                                                    <%=message %>
+                                                </h5>
+                                                <%}%>
+
+                                                    <!-- <label for="city"><i class="fa fa-institution"></i> City</label>
+                                            <input type="text" id="city" name="city" placeholder="New York"> -->
+
+                                                    <div class="row">
+                                                        <div class="mr-2">
+                                                            <input type="radio" id="html" name="payM" value="PDC">
+                                                              <label for="html"> Pay during Cheakout</label>
+                                                        </div>
+                                                          <input type="radio" id="css" name="payM" value="ONLINEPAY">
+                                                          <label for="css"> Online Payment</label>
+
+                                                        <button type="submit" class="border-button ml-auto w-25 ">Click
+                                                            Me!</button>
+
+                                                    </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+        </div>
+    </section>
+    <!--================ About History Area  =================-->
+
+
+
+
+
+
+
+
+
+    <script>
+        $("#cheakoutBooking").submit((e) => {
+            e.preventDefault()
+            $.ajax({
+                url: "/placeBooking",
+                method: "post",
+                data: $("#cheakoutBooking").serialize(),
+                success: (response) => {
+                    console.log("yes")
+                    if (response.status) {
+                        console.log("dddddddddddddddddddddddddddddddd");
+                        location.href = '/sucesspage'
+                    } else if (response.radio) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Select Payment Method.',
+                        })
+                    } else if (response.viewRazorpay) {
+                        razorpayment(response.booking)
+
+                    }
+                }
+            })
+        })
+
+
+
+
+
+        function razorpayment(booking) {
+            console.log(booking);
+            let options = {
+                "key": "rzp_test_kCczpDOXE1A5oA", // Enter the Key ID generated from the Dashboard
+                "amount": booking.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "Vayo Resorts Booking", //your business name
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": booking.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "handler": function (response) {
+
+                    verifyPayment(response, booking)
+
+                },
+                "prefill": {
+                    "name": "Adil sha", //your customer's name
+                    "email": "adilsha042@example.com",
+                    "contact": "8086814964"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            }
+            var rzp = new Razorpay(options);
+            rzp.open();
+
+        }
+
+        function verifyPayment(payment, booking) {
+            $.ajax({
+                url: '/verifyPayment',
+                data: {
+                    payment,
+                    booking
+                },
+                method: "post",
+                success: (response) => {
+                    console.log("yesss");
+                    if (response.status) {
+                        location.href = '/sucesspage'
+                    }
+                }
+
+            })
+        }
+    </script>
+
+
+    <script>
+        function applyCoupon(total, code) {
+            // console.log(CouponCode);
+            $.ajax({
+                url: '/applyCoupon',
+                data: {
+                    total: total,
+                    code: code
+                },
+                method: "post",
+                success: (response) => {
+                    if (response.datefailed) {
+                        console.log("ssssssssssssssssss");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Coupon Expired'
+                        })
+                    } else if (response.amountnotoky) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Purchase More'
+                        })
+                    } else if (response.amountokay) {
+                        console.log("mniiii");
+                        document.getElementById('code').value = response.code
+                        document.getElementById('discount').innerHTML = response.discountValue
+                        document.getElementById('discount1').value = response.discountValue
+                        document.getElementById('total').innerHTML = response.Value
+                        document.getElementById('total1').value = response.Value
+                        Swal.fire(
+                            'Good job!',
+                            'You clicked the button!',
+                            'success'
+                        )
+                    } else if (response.used) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Alredy Used'
+                        })
+                    } else if (response.invaild) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Invaild Coupon'
+                        })
+                    }
+                }
+            })
+        }
+
+    </script>
+    </script>
+
+
+
+    </script>
+
+    <section class="about_history_area mt-4">
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="col-md-6 col-lg-8 col-7 col-xl-8 col-sm-4">
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+
+    </style>
+    <!--================ Testimonial Area  =================-->
+
+    <!--================ Testimonial Area  =================-->
+
+    <!--================ Testimonial Area  =================-->
+
+    <!--================ Latest Blog Area  =================-->
+
+    <!--================ Recent Area  =================-->
+
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="footer_title">About Agency</h6>
+                        <p>The world has become so fast paced that people don’t want to stand by reading a page
+                            of information, they would much rather look at a presentation and understand the
+                            message. It has come to a point </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="footer_title">Navigation Links</h6>
+                        <div class="row">
+                            <div class="col-4">
+                                <ul class="list_style">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Feature</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <ul class="list_style">
+                                    <li><a href="#">Team</a></li>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="footer_title">Newsletter</h6>
+                        <p>For business professionals caught between high OEM price and mediocre print and
+                            graphic output, </p>
+                        <div id="mc_embed_signup">
+                            <form target="_blank"
+                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="subscribe_form relative">
+                                <div class="input-group d-flex flex-row">
+                                    <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                    <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>
+                                </div>
+                                <div class="mt-10 info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget instafeed">
+                        <h6 class="footer_title">InstaFeed</h6>
+                        <ul class="list_style instafeed d-flex flex-wrap">
+                            <li><img src="/imageFront/instagram/Image-01.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-02.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-03.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-04.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-05.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-06.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-07.jpg" alt=""></li>
+                            <li><img src="/imageFront/instagram/Image-08.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border_line"></div>
+            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                    template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                        href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+                <div class="col-lg-4 col-sm-12 footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+    <%- include('../layouts/user/footer.ejs')%>

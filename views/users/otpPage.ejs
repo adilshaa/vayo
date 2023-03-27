@@ -1,0 +1,70 @@
+<%- include('../layouts/user/header.ejs')%>
+
+  <header class="header_area">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: blue ;border-radius: 0 0 1rem 1rem;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand logo_h" href="index.html"><img src="/imageFront/Logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav ml-auto">
+
+            <li class="nav-item"><a class="nav-link" href="/Home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class=" " style="border-radius: 1rem; border: none; ">
+            <div class="card-body p-5 text-center">
+
+              <div class="mb-md-5 mt-md-4 pb-5">
+
+                <h2 class="fw-bold mb-2 text-uppercase">signup</h2>
+                <p class="text-white-50 mb-5">Please enter your details</p>
+                <form action="/otpVerify" method="post">
+
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="typePasswordX" style="color: black;font-size: larger;">Enter
+                      Otp</label>
+                    <input type="number" id="typePasswordX" class="form-control form-control-lg"
+                      style="border: solid .1px;box-shadow: none; border-radius: 2rem; color: red;" name="otp"
+                      placeholder="Enter Otp" />
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit"
+                      style="background-color: rgb(82, 80, 80);">SIGNUP</button>
+                    <% if(typeof message !=="undefined" ) { %>
+                      <h5 style="font-size: 14px;color: brown;">
+                        <%=message %>
+                      </h5>
+                      <%}%>
+
+                </form>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Pills content -->
+  <%- include('../layouts/user/footer.ejs')%>
+    <!--================Header Are
