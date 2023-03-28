@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require('dotenv').config()
 
 mongoose.connect(process.env.Resort);
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 const express = require("express");
 const app = express();
 const path = require("path");
