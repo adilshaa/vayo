@@ -12,6 +12,7 @@ const ViewCatogory = async (req, res) => {
   }
 };
 
+
 const New_category = async (req, res) => {
   try {
     res.render("Add_catogery");
