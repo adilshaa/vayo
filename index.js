@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 
+app.use(session({
+  secret: 'vayo',
+  resave: false,
+  saveUninitialized: false // add this line
+}));
 
 require('dotenv').config()
 
 mongoose.connect(process.env.Resort);
+mongoose.set('strictQuery', false);
 const express = require("express");
 const app = express();
 const path = require("path");
