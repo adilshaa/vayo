@@ -1,10 +1,5 @@
 const mongoose = require("mongoose");
 
-app.use(session({
-  secret: 'vayo',
-  resave: false,
-  saveUninitialized: false // add this line
-}));
 
 require('dotenv').config()
 

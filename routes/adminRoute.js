@@ -29,7 +29,10 @@ const config = require("../config/config");
 
 //session requireing 
 const session = require("express-session");
-adminRoute.use(session({ secret: config.sessionSecret }));
+adminRoute.use(session({ secret: config.sessionSecret,
+  resave: false,
+  saveUninitialized: false // add this line
+ }));
 //view engine
 adminRoute.set("view engine", "ejs");
 adminRoute.set("views", "views/admin");

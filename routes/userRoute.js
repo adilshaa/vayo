@@ -8,7 +8,10 @@ User_route.set("views", "views/users");
 const config = require("../config/config");
 const session = require("express-session");
 
-User_route.use(session({ secret: config.sessionSecret }));
+User_route.use(session({ secret: config.sessionSecret ,
+  resave: false,
+  saveUninitialized: false // add this line
+}));
 
 const nocache = require("nocache");
 User_route.use(nocache());
