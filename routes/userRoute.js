@@ -41,7 +41,7 @@ const resortsManage = require("../models/resortsManage");
 const coupenController=require('../controllers/couponController')
 
 
-User_route.get("/Home", userController.loadHome);
+User_route.get("/", userController.loadHome);
 User_route.get("/UserSignUp", authUser.isLogout, userController.UserSignup);
 User_route.post("/UserSignUp", userController.NewtUser2);
 User_route.post("/otpVerify", userController.VerifyUser2);
