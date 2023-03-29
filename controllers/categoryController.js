@@ -1,4 +1,4 @@
-const Category = require("../models/CatogeryModel");
+const Category =require("../models/CatogeryModel");
 const fs = require("fs");
 const path = require("path");
 
