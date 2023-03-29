@@ -104,7 +104,8 @@ const VerifyUser2 = async (req, res, next) => {
       // console.log()
       // console.log("sss" + userData)
       if (userData) {
-        res.redirect("/Home");
+        res.redirect("/");
+
       } else {
         res.render("otpPage", { message: "wrong otp" });
       }
@@ -138,7 +139,7 @@ const VerifyUser = async (req, res) => {
       if (ComparePassword) {
         session = req.session;
         session.user = OldUserData;
-        res.redirect("/Home");
+        res.redirect("/");
         console.log("User Logined");
         console.log(req.session.user);
       } else {
@@ -158,7 +159,8 @@ const UserLogout = async (req, res) => {
   if (req.session.user) {
     console.log("kooooi");
     req.session.user = null;
-    res.redirect("/Home");
+    res.redirect("/");
+
   }
 };
 

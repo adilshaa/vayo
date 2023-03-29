@@ -9,7 +9,9 @@ const View_resorts = async (req, res) => {
     const takeResortDetails = await resortMenage.find({}).populate("category");
     console.log(takeResortDetails);
     res.render("Resort_view", { passResortData: takeResortDetails });
-  } catch (error) {}
+  } catch (error) {
+    
+  }
 };
 
 const Add_resorts = async (req, res) => {
