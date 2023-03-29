@@ -20,7 +20,7 @@ const categoryController = require("../controllers/categoryController");
 //resort controller
 const resortMangeController = require("../controllers/resortControllers");
 
-const bookingController = require("../controllers/bookingController");
+const bookingController = require("../controllers/bookingController1");
 
 //coupen Cantroller
 const coupenController=require('../controllers/couponController')

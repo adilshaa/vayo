@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const authUser = require("../middleware/authUser");
 const userController = require("../controllers/userController");
-const bookingController = require("../controllers/bookingController");
+const bookingController = require("../controllers/bookingController1");
 const resortsManage = require("../models/resortsManage");
 const coupenController=require('../controllers/couponController')
 
