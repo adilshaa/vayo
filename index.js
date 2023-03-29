@@ -7,7 +7,7 @@ mongoose.connect(process.env.Resort,{
   useNewUrlParser:true,
   useUnifiedTopology:true
 });
-// mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', false);
 const express = require("express");
 const app = express();
 const path = require("path");
