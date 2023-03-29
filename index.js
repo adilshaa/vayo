@@ -23,7 +23,7 @@ const adminRoute = require("./routes/adminRoute");
 app.use("/", userRoute);
 app.use("/admin", adminRoute);
 
-app.listen(2000, () => {
+app.listen(3000, () => {
   console.log("Clint-------------😁-------------Server");
 });
 
