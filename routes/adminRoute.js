@@ -20,7 +20,7 @@ const categoryController = require("../controllers/categoryController");
 //resort controller
 const resortMangeController = require("../controllers/resortControllers");
 
-const BookingController = require("../controllers/bookingController");
+const bookingController = require("../controllers/bookingController");
 
 //coupen Cantroller
 const coupenController=require('../controllers/couponController')
@@ -106,7 +106,7 @@ adminRoute.get(
 adminRoute.get(
   "/BookingList",
   auth.isLogin,
-  BookingController.BookingList
+  bookingController.BookingList
 );
 
 
@@ -165,7 +165,7 @@ adminRoute.post("/coupenLoad/add_coupon",
 coupenController.InserCoupon
 )
 adminRoute.post("/UpdateStatus",
-BookingController.UpdateBookingStatus
+bookingController.UpdateBookingStatus
 )
 
 
@@ -185,5 +185,5 @@ adminRoute.post("/sales",
 adminController.salesReport
 )
 
-adminRoute.get("/ViewUserBookingDetals/:id",BookingController.ViewSeprateBooking)
+adminRoute.get("/ViewUserBookingDetals/:id",bookingController.ViewSeprateBooking)
 module.exports = adminRoute;

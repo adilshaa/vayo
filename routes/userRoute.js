@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const authUser = require("../middleware/authUser");
 const userController = require("../controllers/userController");
-const BookingController = require("../controllers/bookingController");
+const bookingController = require("../controllers/bookingController");
 const resortsManage = require("../models/resortsManage");
 const coupenController=require('../controllers/couponController')
 
@@ -65,12 +65,12 @@ User_route.get("/open_resort/:id", userController.openResorts);
 User_route.get(
   "/placeBooking/:id",
   authUser.isLogin,
-  BookingController.ResortBooking
+  bookingController.ResortBooking
 );
 User_route.post(
   "/placeBooking",
   authUser.isLogin,
-  BookingController.Insert_resortBooking
+  bookingController.Insert_resortBooking
 );
 User_route.get("/Userpage", authUser.isLogin, userController.LoadUserpage);
 User_route.post(
@@ -82,20 +82,20 @@ User_route.post("/ResetPass", authUser.isLogout, userController.ChangePassword);
 User_route.get(
   "/viewBooking",
   authUser.isLogin,
-  BookingController.VeiwBooking
+  bookingController.VeiwBooking
 );
 // User_route.get("/successPage", BookingController);
 User_route.post(
   "/verifyPayment",
   authUser.isLogin,
-  BookingController.verifyPayment
+  bookingController.verifyPayment
 );
 
 User_route.post("/userReviews",userController.Review)
-User_route.get("/ViewSeprateBooking/:id",BookingController.BookingDetalsis)
-User_route.get("/sucesspage", authUser.isLogin, BookingController.Successpage);
+User_route.get("/ViewSeprateBooking/:id",bookingController.BookingDetalsis)
+User_route.get("/sucesspage", authUser.isLogin, bookingController.Successpage);
 
-User_route.post("/cancelBooking",BookingController.CancelBooking)
+User_route.post("/cancelBooking",bookingController.CancelBooking)
 User_route.post("/applyCoupon",coupenController.applayCoupen)
 
 User_route.post("/complanteRegister",userController.registerComplainte)
