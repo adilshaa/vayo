@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 
 require('dotenv').config()
 
-mongoose.connect(process.env.Resort,{
-  useNewUrlParser:true,
-  useUnifiedTopology:true
-});
+mongoose.connect(process.env.Resort,
+//   {
+//   useNewUrlParser:true,
+//   useUnifiedTopology:true
+// }
+);
 mongoose.set('strictQuery', false);
 
 const express = require("express");
