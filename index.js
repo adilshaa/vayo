@@ -9,7 +9,7 @@ mongoose.connect(process.env.Resort,
 //   useUnifiedTopology:true
 // }
 );
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 
 const express = require("express");
 const app = express();
