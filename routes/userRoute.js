@@ -3,7 +3,7 @@ const express = require("express");
 const User_route = express();
 
 User_route.set("view engine", "ejs");
-User_route.set("views", "views/users");
+User_route.set("views", "views/users/");
 
 const config = require("../config/config");
 const session = require("express-session");

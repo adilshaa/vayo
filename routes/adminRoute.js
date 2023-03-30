@@ -35,7 +35,7 @@ adminRoute.use(session({ secret: config.sessionSecret,
  }));
 //view engine
 adminRoute.set("view engine", "ejs");
-adminRoute.set("views", "views/admin");
+adminRoute.set("views", "views/admin/");
 
 const multer = require("multer");
 const storage = require("../middleware/ResortImagemulter");
