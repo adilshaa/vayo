@@ -72,7 +72,7 @@ User_route.post(
   authUser.isLogin,
   bookingController.Insert_resortBooking
 );
-User_route.get("/Userpage", authUser.isLogin, userController.LoadUserpage);
+User_route.get("/userpage", authUser.isLogin, userController.LoadUserpage);
 User_route.post(
   "/UpdateuserData",
   authUser.isLogin,
