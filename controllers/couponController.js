@@ -5,7 +5,9 @@ const ListCoupon = async (req, res) => {
   try {
     const CouponData = await CouponManagment.find({});
     res.render("couponPage", { CouponData: CouponData });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const AddCouponPage = async (req, res) => {
