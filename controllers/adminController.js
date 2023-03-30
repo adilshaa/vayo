@@ -173,7 +173,7 @@ const BlockUser = async (req, res) => {
 
 const SalesReportSearch=async(req,res)=>{
   try {
-    res.render("salesReportsearchPage")
+    res.render("salesresportsnew")
   } catch (error) {
     
   }
