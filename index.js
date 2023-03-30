@@ -10,7 +10,7 @@ mongoose.connect(process.env.Resort,
 // }
 );
 // mongoose.set('strictQuery', false);
-
+//some
 const express = require("express");
 const app = express();
 const path = require("path");
