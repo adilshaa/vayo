@@ -1,5 +1,5 @@
+<!-- Sidebar End -->
 <%- include('../layouts/admin/header.ejs')%>
-
 
 
   <div class="container-scroller">
@@ -220,8 +220,8 @@
                   <button type="button" class="btn btn-light bg-white btn-icon mr-3 mt-2 mt-xl-0">
                     <i class="mdi mdi-plus text-muted"></i>
                   </button>
-                  <a href="/admin/Viewcategory/Add_category"><button class="btn btn-primary mt-2 mt-xl-0">Add
-                      Category</button></a>
+                  <a href="/admin/coupenLoad/add_coupon"><button class="btn btn-primary mt-2 mt-xl-0">Add
+                      Coupon </button></a>
 
                 </div>
               </div>
@@ -234,67 +234,91 @@
 
 
 
-          <div class="col-9 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h3>ADD CATERGORY</h3>
-                <p class="card-description">
 
-                </p>
-                
+          <div class="">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title">BOoking Details </h3>
+                      
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>id</th>
+                              
+                              <th>Coupon Name</th>
+                              <th>Coupon Code</th>
+                              <th>Coupon Discount</th>
+                              <th>Coupon Exp Date</th>                           
+                              <th>Max Discount</th>
+                              <th>Min Purchase Amount</th>
+                              <th>Max Discount</th>
+
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% CouponData.forEach((elements,index)=>{ %>
+                            <tr>
+                        <td scope="row"><%=index+1 %></td>                             
+                              <td><label class=" "><%=elements.couponName  %></label></td>
+                              <td><label class=""><%=elements.CouponCode  %></label></td>
+                              <td><label class=""><%=elements.CouponDiscount  %></label></td>
+                              <td><label class=""><%=elements.CoupoEexpirationDate  %></label></td>
+                              <td><label class=""><%=elements.CouponMaxDiscount  %></label></td>
+                              <td><label class=""><%=elements.CouponMinPurchaseAmount  %></label></td>
+                              <td><label class=""><%=elements.CoupoEexpirationDate.toLocaleDateString() %></label></td>
+                              <td><label class=""><%=elements.CoupoEexpirationDate.toLocaleDateString() %></label></td>
 
 
 
-
-
-
-                <main id="main" class="main">
-
-                    <div calass="pagetitle">
-                      <h1>sales</h1>
-                  
-                    </div>
-                  
-                    <section class="section dashboard ">
-                      <div class="row">
-                        <div class="card br-8px">
-                          <div class="card-body">
-                            <br>
-                            <!-- Vertical Form -->
-                            <form class="row g-3" action="" method="post">
-                              <div class="col-6">
-                                <label for="inputNanme4" class="form-label">Date from</label>
-                                <input type="date" class="form-control"  id="from" name="from">
-                              </div>
-                              <div class="col-6">
-                                <label for="fordescription" class="form-label">Date to</label>
-                                <input type="date" class="form-control" id="to" name="to">
-                              </div>
-                             
-                              <div class="text-center">
-                                <button type="submit" class="btn btn-success" style="float:right;   padding-inline: 50px;"> submit</button>
-                              </div>
-                            </form><!-- Vertical Form -->
-                          </div>
-                        </div>
-                  
-                        <div class="col-lg-4">
-                        </div>
+                                  <td>
+                         <a href="/admin/coupenLoad/EditCoupon/<%=elements._id%>"><button type="button" class="btn btn-outline-dark btn-fw">Edit</button></a>
+                                  </td>
+                            </tr>
+                            <% }) %>                          
+                          </tbody>
+                        </table>
                       </div>
-                    </section>
-                  
-                  </main><!-- End #main -->
-                  
-                  
-
-
-
-
-                
-              </div>
-            </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a
+                href="https://www.urbanui.com/" target="_blank">Urbanui</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+                class="mdi mdi-heart text-danger"></i></span>
           </div>
-          <%- include('../layouts/admin/footer.ejs')%>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
 
 
-            <!-- Navbar End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  </div>
+
+
+
+
+
+
+
+  <%- include('../layouts/admin/footer.ejs')%>

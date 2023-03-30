@@ -4,7 +4,7 @@ const User = require("../models/userModel");
 const ListCoupon = async (req, res) => {
   try {
     const CouponData = await CouponManagment.find({});
-    res.render("couponPage", { CouponData: CouponData });
+    res.render("couponpagenew", { CouponData: CouponData });
   } catch (error) {
     console.log(error);
   }

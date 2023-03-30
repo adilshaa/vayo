@@ -442,7 +442,7 @@ const LoadUserpage = async (req, res) => {
 
       const userData = await User.findOne({ _id: req.session.user._id });
       console.log(userData);
-      res.render("userPage", {
+      res.render("vayouserspage", {
         userData: userData,
         PassUserName: UserNameData,
       });
