@@ -7,12 +7,14 @@ const { log } = require("console");
 const View_resorts = async (req, res) => {
   try {
     const takeResortDetails = await resortMenage.find({}).populate("category");
-    console.log(takeResortDetails);
+    console.log(takeResortDetails);    
     res.render("Resort_view", { passResortData: takeResortDetails });
   } catch (error) {
     
   }
 };
+
+
 
 const Add_resorts = async (req, res) => {
   try {
@@ -78,6 +80,7 @@ const editResorts = async (req, res) => {
     console.log(error.message);
   }
 };
+
 
 const UpdateResort = async (req, res) => {
   try {

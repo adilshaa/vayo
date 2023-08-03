@@ -70,6 +70,7 @@ const Editcategory = async (req, res) => {
   const GetExistinfData = await Category.findOne({ _id: id });
   res.render("editcategory", { vcategory: GetExistinfData });
 };
+
 const UpadateCatergory = async (req, res) => {
   try {
     // console.log();

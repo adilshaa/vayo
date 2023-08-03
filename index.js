@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require('dotenv').config()
 
 mongoose.connect(process.env.Resort,
+  
 //   {
 //   useNewUrlParser:true,
 //   useUnifiedTopology:true
