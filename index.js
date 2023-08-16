@@ -3,15 +3,10 @@ const mongoose = require("mongoose");
 
 require('dotenv').config()
 
-mongoose.connect(process.env.Resort,
+mongoose.createConnection(process.env.Resort,
   
-//   {
-//   useNewUrlParser:true,
-//   useUnifiedTopology:true
-// }
 );
-// mongoose.set('strictQuery', false);
-//some
+
 const express = require("express");
 const app = express();
 const path = require("path");
