@@ -7,8 +7,7 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const accountsid = process.env.TWILIO_ACCOUNT_SID;
 const authtoken = process.env.TWILIO_AUTH_TOKEN;
-const Client = require("twilio")(accountsid, authtoken);
-
+const Client = require("twilio")
 const UserNameData = require("../middleware/Connection");
 // ---------------
 
