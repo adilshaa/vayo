@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
-
 require('dotenv').config()
 
-mongoose.createConnection(process.env.Resort,
-  
+mongoose.connect(process.env.Resort,
+  // console.log('connected')
 );
 
 const express = require("express");
@@ -15,14 +14,14 @@ app.use(express.static(path.join(__dirname, "public")));
 //for user routes
 const userRoute = require("./routes/userRoute");
 const adminRoute = require("./routes/adminRoute");
+const { log } = require("console");
 // const { response } = require("./routes/adminRoute");
 app.use("/", userRoute);
 app.use("/admin", adminRoute);
+
 
 app.listen(3000, () => {
   console.log("Clint-------------😁-------------Server");
 });
 
-module.exports = {
-  app,
-};
+module.exports = app

@@ -2,6 +2,7 @@ const admin = require("../models/adminLoginModel");
 const User = require("../models/userModel");
 const Booking = require("../models/BookingModel");
 const CategoryModel = require("../models/CatogeryModel");
+const Admins = require("../models/adminLoginModel");
 
 const adminLogin = async (req, res) => {
   try {
@@ -15,11 +16,12 @@ const loginVerify = async (req, res) => {
   try {
     const username = req.body.username;
     const password = req.body.password;
+console.log(username,password);
+    const adminData = await Admins.findOne({ username: username });
+      console.log(adminData)
 
-    const adminData = await admin.findOne({ username: username });
     if (adminData) {
-      console.log(adminData);
-      if (password === adminData.password) {
+      if (password == adminData.password) {
         session = req.session;
         session.admin = adminData;
 
@@ -33,7 +35,7 @@ const loginVerify = async (req, res) => {
       res.render("adminLogin", { message: "Enter a valid username" });
     }
   } catch (error) {
-    console.log(error.messasge);
+    console.log(error);
   }
 };
 const loadDashboard = async (req, res) => {
@@ -67,20 +69,15 @@ const loadDashboard = async (req, res) => {
         $limit: 7,
       },
     ]);
-    console.log(totalSalesLine);
     const date = totalSalesLine.map((item) => {
       return item._id;
     });
     const sales = totalSalesLine.map((item) => {
       return item.sales;
     });
-console.log(sales);
-console.log(date);
 
    let salesCount=sales.length
    let dateCount=date.length
-console.log(dateCount);
-console.log(salesCount);
 
 
 //category Wase Sales Chart
@@ -148,7 +145,6 @@ const UserDetails = async (req, res) => {
   try {
     const userData = await User.find({});
 
-    console.log(userData);
     res.render("UsersPage", { PassUserData: userData });
   } catch (error) {}
 };
@@ -160,7 +156,6 @@ const BlockUser = async (req, res) => {
     { _id: id },
     { user_status: 1, _id: 0 }
   );
-  console.log(UserStatuSData);
   if (UserStatuSData.user_status == true) {
     await User.updateOne({ _id: id }, { $set: { user_status: false } });
     req.session.user = null;
@@ -197,7 +192,6 @@ const salesReport = async (req, res) => {
               .populate
               ('ResortName')
 
-          console.log(salesdata+"pppppppp");
 
           res.render('salesReportPage', {sales: salesdata })
       }

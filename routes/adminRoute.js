@@ -10,8 +10,8 @@ adminRoute.use(bodyparser.json());
 adminRoute.use(bodyparser.urlencoded({ extended: true }));
 
 //nocache
-const nocache=require('nocache')
-adminRoute.use(nocache())
+const nocache = require("nocache");
+adminRoute.use(nocache());
 
 //admin controller
 const adminController = require("../controllers/adminController");
@@ -23,16 +23,19 @@ const resortMangeController = require("../controllers/resortControllers");
 const bookingController = require("../controllers/bookingController1");
 
 //coupen Cantroller
-const coupenController=require('../controllers/couponController')
+const coupenController = require("../controllers/couponController");
 
 const config = require("../config/config");
 
-//session requireing 
+//session requireing
 const session = require("express-session");
-adminRoute.use(session({ secret: config.sessionSecret,
-  resave: false,
-  saveUninitialized: false // add this line
- }));
+adminRoute.use(
+  session({
+    secret: config.sessionSecret,
+    resave: false,
+    saveUninitialized: false, // add this line
+  })
+);
 //view engine
 adminRoute.set("view engine", "ejs");
 adminRoute.set("views", "views/admin/");
@@ -44,8 +47,6 @@ const upload = multer({ storage: storage });
 const catstorage = require("../middleware/categoryImageMulter");
 
 const UploadCategory = multer({ storage: catstorage });
-
-
 
 //middileware
 const auth = require("../middleware/auth");
@@ -62,11 +63,12 @@ adminRoute.post(
   UploadCategory.array("categoryImages"),
   categoryController.Add_Category
 );
-adminRoute.post("/Viewcategory/editcatImag/:id",
-UploadCategory.array("categoryImages"),
-auth.isLogin,
-  categoryController.editImageCat, 
-  )
+adminRoute.post(
+  "/Viewcategory/editcatImag/:id",
+  UploadCategory.array("categoryImages"),
+  auth.isLogin,
+  categoryController.editImageCat
+);
 adminRoute.get(
   "/Viewcategory/Add_category",
   auth.isLogin,
@@ -103,12 +105,7 @@ adminRoute.get(
   auth.isLogin,
   resortMangeController.View_resorts
 );
-adminRoute.get(
-  "/BookingList",
-  auth.isLogin,
-  bookingController.BookingList
-);
-
+adminRoute.get("/BookingList", auth.isLogin, bookingController.BookingList);
 
 adminRoute.post(
   "/View_resort/add_resorts",
@@ -119,10 +116,7 @@ adminRoute.get(
   "/View_resort/deletecategory/:id",
   resortMangeController.DeleteResort
 );
-adminRoute.get(
-  "/View_resort/List/:id",
-  resortMangeController.ListResort
-);
+adminRoute.get("/View_resort/List/:id", resortMangeController.ListResort);
 adminRoute.get(
   "/View_resort/editresort/:id",
   auth.isLogin,
@@ -142,48 +136,29 @@ adminRoute.post(
   resortMangeController.editImagae
 );
 
-adminRoute.get(
-    "/UserDetails",
- auth.isLogin,
-  adminController.UserDetails
+adminRoute.get("/UserDetails", auth.isLogin, adminController.UserDetails);
+
+adminRoute.get("/UserDetails/BlockUser/:id", adminController.BlockUser);
+
+adminRoute.get("/coupenLoad", coupenController.ListCoupon);
+
+adminRoute.get("/coupenLoad/add_coupon", coupenController.AddCouponPage);
+
+adminRoute.post("/coupenLoad/add_coupon", coupenController.InserCoupon);
+adminRoute.post("/UpdateStatus", bookingController.UpdateBookingStatus);
+
+adminRoute.get("/coupenLoad/EditCoupon/:id", coupenController.editCoupon);
+
+adminRoute.post(
+  "/coupenLoad/EditCoupon/:id",
+  coupenController.UpdateEditCoupon
 );
 
+adminRoute.get("/sales", adminController.SalesReportSearch);
+adminRoute.post("/sales", adminController.salesReport);
+
 adminRoute.get(
-    "/UserDetails/BlockUser/:id", 
-adminController.BlockUser
+  "/ViewUserBookingDetals/:id",
+  bookingController.ViewSeprateBooking
 );
-
-adminRoute.get("/coupenLoad",
-coupenController.ListCoupon
-)
-
-adminRoute.get("/coupenLoad/add_coupon",
-coupenController.AddCouponPage
-)
-
-adminRoute.post("/coupenLoad/add_coupon",
-coupenController.InserCoupon
-)
-adminRoute.post("/UpdateStatus",
-bookingController.UpdateBookingStatus
-)
-
-
-adminRoute.get("/coupenLoad/EditCoupon/:id",
-coupenController.editCoupon
-)
-
-adminRoute.post("/coupenLoad/EditCoupon/:id",
-coupenController.UpdateEditCoupon
-)
-
-
-adminRoute.get("/sales",
-adminController.SalesReportSearch
-)
-adminRoute.post("/sales",
-adminController.salesReport
-)
-
-adminRoute.get("/ViewUserBookingDetals/:id",bookingController.ViewSeprateBooking)
 module.exports = adminRoute;

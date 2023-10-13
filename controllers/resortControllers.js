@@ -7,14 +7,10 @@ const { log } = require("console");
 const View_resorts = async (req, res) => {
   try {
     const takeResortDetails = await resortMenage.find({}).populate("category");
-    console.log(takeResortDetails);    
+    console.log(takeResortDetails);
     res.render("Resort_view", { passResortData: takeResortDetails });
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 };
-
-
 
 const Add_resorts = async (req, res) => {
   try {
@@ -27,7 +23,7 @@ const Add_resorts = async (req, res) => {
 
 const insert_resorts = async (req, res) => {
   try {
-    let dateWithTime = req.body.resortAvailabilityData
+    let dateWithTime = req.body.resortAvailabilityData;
     // const dateWithoutTime = new Date(dateWithTime).toLocaleDateString()
     // console.log(dateWithoutTime);
     const imageAarray = [];
@@ -81,13 +77,10 @@ const editResorts = async (req, res) => {
   }
 };
 
-
 const UpdateResort = async (req, res) => {
   try {
-
-    let dateWithTime = req.body.resortAvailabilityData
+    let dateWithTime = req.body.resortAvailabilityData;
     // const dateWithoutTime = new Date(dateWithTime).toLocaleDateString()
-
 
     let NewresortName = req.body.resortName;
     let newresortDiscription = req.body.resortDiscription;
@@ -96,7 +89,7 @@ const UpdateResort = async (req, res) => {
     let newresortPrice = req.body.resortPrice;
     let newresortCategory = req.body.resortCategory;
     let newresortPolicies = req.body.resortPolicies;
-  
+
     let newresortRooms = req.body.resortRooms;
     let id = req.params.id;
 
